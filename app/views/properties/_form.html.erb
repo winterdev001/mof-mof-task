@@ -10,61 +10,61 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :property %>
     <%= f.text_field :property %>
   </div>
+  <%= f.fields_for :property_nests do |p|%>
+    <div class="field">
+      <%= p.label :rent %>
+      <%= p.number_field :rent %>
+    </div>
 
-  <div class="field">
-    <%= f.label :rent %>
-    <%= f.number_field :rent %>
-  </div>
+    <div class="field">
+      <%= p.label :adress %>
+      <%= p.text_field :adress %>
+    </div>
 
-  <div class="field">
-    <%= f.label :adress %>
-    <%= f.text_field :adress %>
-  </div>
+    <div class="field">
+      <%= p.label :building_age %>
+      <%= p.number_field  :building_age %>
+    </div>
 
-  <div class="field">
-    <%= f.label :building_age %>
-    <%= f.number_field  :building_age %>
-  </div>
+    <div class="field">
+      <%= p.label :remarks %>
+      <%= p.text_area :remarks %>
+    </div>
+    <hr>
+    <h2> The nearest realway Line 1 </h2>
+    <div class="field">
+      <%= p.label :name_of_railway_line %>
+      <%= p.text_field :name_of_railway_line %>
+    </div>
 
-  <div class="field">
-    <%= f.label :remarks %>
-    <%= f.text_area :remarks %>
-  </div>
-  <hr>
-<h2> The nearest realway Line 1 </h2>
-  <div class="field">
-    <%= f.label :name_of_railway_line %>
-    <%= f.text_field :name_of_railway_line %>
-  </div>
+    <div class="field">
+      <%= p.label :statation_name %>
+      <%= p.text_field :statation_name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :statation_name %>
-    <%= f.text_field :statation_name %>
-  </div>
+    <div class="field">
+      <%= p.label :how_many_minutes_walks %>
+      <%= p.number_field  :how_many_minutes_walks %>
+    </div><h2> The nearest realway Line 2</h2>
+    <div class="field">
+      <%= p.label :name_of_railway_line1 %>
+      <%= p.text_field :name_of_railway_line1 %>
+    </div>
 
-  <div class="field">
-    <%= f.label :how_many_minutes_walks %>
-    <%= f.number_field  :how_many_minutes_walks %>
-  </div><h2> The nearest realway Line 2</h2>
-  <div class="field">
-    <%= f.label :name_of_railway_line1 %>
-    <%= f.text_field :name_of_railway_line1 %>
-  </div>
+    <div class="field">
+      <%= p.label :statation_name1 %>
+      <%= p.text_field :statation_name1 %>
+    </div>
 
-  <div class="field">
-    <%= f.label :statation_name1 %>
-    <%= f.text_field :statation_name1 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :how_many_minutes_walks1 %>
-    <%= f.text_field :how_many_minutes_walks1 %>
-  </div>
+    <div class="field">
+      <%= p.label :how_many_minutes_walks1 %>
+      <%= p.text_field :how_many_minutes_walks1 %>
+    </div>
+  <%end%>  
 
   <div class="actions">
     <%= f.submit value:"Register"%>

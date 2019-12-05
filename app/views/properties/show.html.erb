@@ -5,56 +5,62 @@
   <%= @property.property %>
 </p>
 
-<p>
-  <strong>Rent:</strong>
-  <%= @property.rent %>
-</p>
 
-<p>
-  <strong>Adress:</strong>
-  <%= @property.adress %>
-</p>
+<% @property.property_nests.each do |p| %>
+  <% if @property.id == p.property_id %>
+    <h2><b>Nearest station </b></h2>
+    <p>
+      <strong>Rent:</strong>
+      <%= p.rent %>
+    </p>
 
-<p>
-  <strong>Building age:</strong>
-  <%= @property.building_age %>
-</p>
+    <p>
+      <strong>Adress:</strong>
+      <%= p.adress %>
+    </p>
 
-<p>
-  <strong>Remarks:</strong>
-  <%= @property.remarks %>
-</p>
-<hr>
-<h2> The nearest station 1 </h2>
-<p>
-  <strong>Name of railway line:</strong>
-  <%= @property.name_of_railway_line %>
-</p>
+    <p>
+      <strong>Building age:</strong>
+      <%= p.building_age %>
+    </p>
 
-<p>
-  <strong>Statation name:</strong>
-  <%= @property.statation_name %>
-</p>
+    <p>
+      <strong>Remarks:</strong>
+      <%= p.remarks %>
+    </p>
+    <hr>
+    <h2> The nearest station 1 </h2>
+    <p>
+      <strong>Name of railway line:</strong>
+      <%= p.name_of_railway_line %>
+    </p>
 
-<p>
-  <strong>How many minutes walks:</strong>
-  <%= @property.how_many_minutes_walks %>
-</p>
-<h2> The nearest station 2 </h2>
-<p>
-  <strong>Name of railway line1:</strong>
-  <%= @property.name_of_railway_line1 %>
-</p>
+    <p>
+      <strong>Statation name:</strong>
+      <%= p.statation_name %>
+    </p>
 
-<p>
-  <strong>Statation name1:</strong>
-  <%= @property.statation_name1 %>
-</p>
+    <p>
+      <strong>How many minutes walks:</strong>
+      <%= p.how_many_minutes_walks %>
+    </p>
+    <h2> The nearest station 2 </h2>
+    <p>
+      <strong>Name of railway line1:</strong>
+      <%= p.name_of_railway_line1 %>
+    </p>
 
-<p>
-  <strong>How many minutes walks1:</strong>
-  <%= @property.how_many_minutes_walks1 %>
-</p>
+    <p>
+      <strong>Statation name1:</strong>
+      <%= p.statation_name1 %>
+    </p>
+
+    <p>
+      <strong>How many minutes walks1:</strong>
+      <%= p.how_many_minutes_walks1 %>
+    </p>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
