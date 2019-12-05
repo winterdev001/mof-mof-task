@@ -17,10 +17,14 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= property.property %></td>
-        <td><%= property.rent %>Rwf</td>
-        <td><%= property.adress %></td>
-        <td><%= property.building_age %>year/years</td>
-        <td><%= property.remarks %></td>
+        <% PropertyNest.all.each do |props|%>
+          <%if property.id == props.property_id%>
+            <td><%= props.rent %>Rwf</td>
+            <td><%= props.adress %></td>
+            <td><%= props.building_age %>year/years</td>
+            <td><%= props.remarks %></td>
+          <%end%>
+        <%end%>
         <td><%= link_to 'Show', property %></td>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
         <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>

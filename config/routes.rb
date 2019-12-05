@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :property_nests
   resources :properties
   root 'properties#index'
  

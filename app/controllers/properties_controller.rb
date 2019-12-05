@@ -8,11 +8,13 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1
   def show
+    @property_nest = PropertyNest.all
   end
 
   # GET /properties/new
   def new
     @property = Property.new
+    @property.property_nests.build
   end
 
   # GET /properties/1/edit
@@ -22,6 +24,8 @@ class PropertiesController < ApplicationController
   # POST /properties
   def create
     @property = Property.new(property_params)
+    # @property = @property.find_by(property_params[:id])    
+    # id = params[:id]
 
     if @property.save
       redirect_to @property, notice: 'Property was successfully created.'
@@ -53,6 +57,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def property_params
-      params.require(:property).permit(:property, :rent, :adress, :building_age, :remarks, :name_of_railway_line, :statation_name, :how_many_minutes_walks, :name_of_railway_line1, :statation_name1, :how_many_minutes_walks1)
+      params.require(:property).permit(:property,property_nests_attributes:[:id,:rent, :adress, :building_age, :remarks, :name_of_railway_line, :statation_name, :how_many_minutes_walks, :name_of_railway_line1, :statation_name1, :how_many_minutes_walks1])
     end
 end

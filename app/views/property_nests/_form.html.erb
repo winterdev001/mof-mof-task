@@ -1,0 +1,22 @@
+<%= form_for(property_nest) do |f| %>
+  <% if property_nest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property_nest.errors.count, "error") %> prohibited this property_nest from being saved:</h2>
+
+      <ul>
+      <% property_nest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :property_id %>
+    <%= f.text_field :property_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
